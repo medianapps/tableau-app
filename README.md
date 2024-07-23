@@ -9,7 +9,7 @@
 
 ## Instalasi Laravel dengan Inertia.js dan Vue.js
 
-Proyek ini menggunakan Laravel dengan Inertia.js dan Vue.js. Berikut adalah langkah-langkah untuk menginstal proyek ini di lingkungan pengembangan (dev) dan produksi (prod).
+Proyek ini menggunakan Laravel dengan Inertia.js dan Vue.js. Berikut adalah langkah-langkah untuk menginstal proyek ini di Environment pengembangan (dev) dan produksi (prod).
 
 ### Prasyarat
 
@@ -42,7 +42,7 @@ Instal dependensi JavaScript dengan npm:
 npm install
 ```
 
-### Langkah 4: Konfigurasi Lingkungan
+### Langkah 4: Konfigurasi Environment
 
 Salin file .env.example menjadi .env dan sesuaikan konfigurasi yang diperlukan (seperti pengaturan database):
 
