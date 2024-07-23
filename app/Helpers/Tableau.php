@@ -32,7 +32,7 @@ class Tableau
             'jti' => strval(time()), // JWT ID (unique identifier)
             'iss' => $clientId, // Issuer of the token (client ID)
             'scp' => explode(',', $scope), // Scope of the request
-            'exp' => time() + 100, // Expiration time of the token (100 seconds from now)
+            'exp' => time() + 600, // Expiration time of the token (100 seconds from now)
         ];
 
         $jwt = JWT::encode($claimSet, $secretValue, 'HS256', null, $header);

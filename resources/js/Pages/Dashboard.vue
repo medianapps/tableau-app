@@ -35,7 +35,7 @@ import { Head } from "@inertiajs/vue3";
                         <tableau-viz
                             id="tableau-viz"
                             src="https://prod-apsoutheast-a.online.tableau.com/t/gforceid152d2772da457/views/Testingdashboard/ExecutiveDashboard"
-                            token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6IjczNDAzM2FmLTJkNWYtNDExOS1hYjU5LTNlMjMxNjBhYmI4NSIsImtpZCI6ImNlYTI4N2Y4LTk4MmUtNDA1Zi04ODRjLTM2NWUyM2NlMWZkOCJ9.eyJzdWIiOiJnZm9yY2VpZDE1MkBnbWFpbC5jb20iLCJhdWQiOiJ0YWJsZWF1IiwibmJmIjoxNzIxNjQyNTUxLCJqdGkiOiIxNzIxNjQyNjUxIiwiaXNzIjoiNzM0MDMzYWYtMmQ1Zi00MTE5LWFiNTktM2UyMzE2MGFiYjg1Iiwic2NwIjpbInRhYmxlYXU6dmlld3M6ZW1iZWQiXSwiZXhwIjoxNzIxNjQyNzUxfQ.JFEB-WF0dqc7Vw5-g0P279MkZnb36aFkGg_otEIsDM0"
+                            token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6IjczNDAzM2FmLTJkNWYtNDExOS1hYjU5LTNlMjMxNjBhYmI4NSIsImtpZCI6ImNlYTI4N2Y4LTk4MmUtNDA1Zi04ODRjLTM2NWUyM2NlMWZkOCJ9.eyJzdWIiOiJnZm9yY2VpZDE1MkBnbWFpbC5jb20iLCJhdWQiOiJ0YWJsZWF1IiwibmJmIjoxNzIxNzA5MzIxLCJqdGkiOiIxNzIxNzA5NDIxIiwiaXNzIjoiNzM0MDMzYWYtMmQ1Zi00MTE5LWFiNTktM2UyMzE2MGFiYjg1Iiwic2NwIjpbInRhYmxlYXU6dmlld3M6ZW1iZWQiXSwiZXhwIjoxNzIxNzA5NTIxfQ.eQv5289z3VtRqFdt7S6yT1-QmRvOH4WOv1_iaYzW_-c"
                         ></tableau-viz>
                     </div>
                 </div>
