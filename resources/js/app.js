@@ -15,7 +15,9 @@ const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
+    resolve: (name) => {
+        return resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue', { eager: false }));
+    },
     setup({ el, App, props, plugin }) {
         const app = createApp({ render: () => h(App, props) });
         app.mixin({ methods: { hasRole, hasPermission } });

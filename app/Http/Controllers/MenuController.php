@@ -20,6 +20,7 @@ class MenuController extends Controller
             'workbook' => 'required|string|max:255',
             'view' => 'required|string|max:255',
             'group' => 'required|array',
+            'icon' => 'max:255',
         ]);
 
         // Create a new menu record
@@ -29,6 +30,7 @@ class MenuController extends Controller
             'workbook' => $request->input('workbook'),
             'view' => $request->input('view'),
             'group' => json_encode($request->input('group')),
+            'icon' => $request->input('icon'),
         ]);
 
         // Redirect back with success message
@@ -64,7 +66,9 @@ class MenuController extends Controller
             'workbook' => 'required|string|max:255',
             'view' => 'required|string|max:255',
             'group' => 'required|array',
+            'icon' => 'max:255',
         ]);
+
 
         // Update the menu record
         $menu->update([
@@ -73,6 +77,7 @@ class MenuController extends Controller
             'workbook' => $validatedData['workbook'],
             'view' => $validatedData['view'],
             'group' => $validatedData['group'], // Ensure group is properly encoded
+            'icon' => $validatedData['icon'],
         ]);
 
 

@@ -16,5 +16,6 @@ class Menu extends Model
         'workbook',
         'view',
         'group',
+        'icon'
     ];
 }

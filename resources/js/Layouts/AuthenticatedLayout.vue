@@ -51,16 +51,26 @@ watch(
                                         route().current('/menus/' + menu.slug)
                                     "
                                 >
-                                    <span
-                                        v-if="
-                                            hasRole(['admin'], user.roles) ||
-                                            hasRole(
-                                                JSON.parse(menu.group),
-                                                user.roles
-                                            )
-                                        "
-                                        >{{ menu.name }}
-                                    </span>
+                                    <div class="flex gap-2 items-center">
+                                        <i
+                                            :class="'pi pi-' + menu.icon"
+                                            style="font-size: 1rem"
+                                        ></i>
+                                        <span
+                                            v-if="
+                                                hasRole(
+                                                    ['admin'],
+                                                    user.roles
+                                                ) ||
+                                                hasRole(
+                                                    JSON.parse(menu.group),
+                                                    user.roles
+                                                )
+                                            "
+                                        >
+                                            {{ menu.name }}
+                                        </span>
+                                    </div>
                                 </NavLink>
 
                                 <NavLink

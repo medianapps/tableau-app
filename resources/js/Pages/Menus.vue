@@ -9,6 +9,7 @@ import InputText from "primevue/inputtext";
 import { ref, watch } from "vue";
 import PickList from "primevue/picklist";
 import Chip from "primevue/chip";
+import AutoComplete from "primevue/autocomplete";
 
 const props = defineProps({
     menus: Array,
@@ -23,6 +24,7 @@ const newMenu = useForm({
     workbook: "",
     view: "",
     group: "",
+    icon: "",
 });
 
 const editMenu = useForm({
@@ -32,6 +34,7 @@ const editMenu = useForm({
     workbook: "",
     view: "",
     group: "",
+    icon: "",
 });
 
 const roles = ref([props.roles, []]);
@@ -47,6 +50,7 @@ const onAddMenu = () => {
 
 const onSaveMenu = () => {
     newMenu.group = roles.value[1];
+    newMenu.icon = selectedIcon.value;
     newMenu.post(route("menu.store"), {
         onSuccess: () => {
             displayAddModal.value = false;
@@ -64,6 +68,7 @@ const onEditMenu = (menu) => {
     editMenu.workbook = menu.workbook;
     editMenu.view = menu.view;
     editMenu.group = menu.group;
+    editMenu.icon = menu.icon ?? null;
 
     const selectedRoles = JSON.parse(menu.group);
     roles.value = [filterRoles(selectedRoles), selectedRoles];
@@ -72,6 +77,8 @@ const onEditMenu = (menu) => {
 
 const onUpdateMenu = () => {
     editMenu.group = roles.value[1];
+    editMenu.icon = selectedIcon.value;
+
     editMenu.patch(route("menu.update", editMenu.id), {
         onSuccess: () => {
             displayEditModal.value = false;
@@ -90,6 +97,28 @@ const onDeleteMenu = (menuId) => {
         },
     });
 };
+
+const selectedIcon = ref(null);
+const icons = ref([
+    "home",
+    "users",
+    "chart-line",
+    "chart-pie",
+    "chart-bar",
+    "cog",
+    "file",
+    "file-edit",
+    "file-plus",
+    "file-minus",
+    "file-export",
+    "file-import",
+    "file-text",
+    "file-zip",
+    "file-powerpoint",
+    "file-music",
+    "file-video",
+    "file-code",
+]);
 
 watch(
     () => newMenu.name,
@@ -231,6 +260,27 @@ watch(
                     />
                 </div>
                 <div class="flex items-center gap-4 mb-4">
+                    <label class="w-24" for="slug">Icon</label>
+                    <div class="flex gap-2 w-full">
+                        <AutoComplete
+                            v-model="selectedIcon"
+                            :suggestions="icons"
+                        />
+                        <div
+                            v-if="selectedIcon"
+                            class="icon-preview p-2 flex items-center gap-2 border border-info rounded-lg w-full"
+                        >
+                            <i
+                                :class="'pi pi-' + selectedIcon"
+                                style="font-size: 1.5rem"
+                            ></i>
+                            <span class="capitalize">
+                                {{ editMenu.name }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 mb-4">
                     <label class="w-24" for="workbook">Workbook</label>
                     <InputText
                         id="workbook"
@@ -291,6 +341,24 @@ watch(
                         class="w-full"
                         v-model="editMenu.slug"
                     />
+                </div>
+                <div class="flex items-center gap-4 mb-4">
+                    <label class="w-24" for="slug">Icon</label>
+                    <div class="flex gap-2 w-full">
+                        <InputText v-model="selectedIcon" />
+                        <div
+                            v-if="selectedIcon"
+                            class="icon-preview p-2 flex items-center gap-2 border border-info rounded-lg w-full"
+                        >
+                            <i
+                                :class="'pi pi-' + selectedIcon"
+                                style="font-size: 1.5rem"
+                            ></i>
+                            <span class="capitalize">
+                                {{ editMenu.name }}
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex items-center gap-4 mb-4">
                     <label class="w-24" for="workbook">Workbook</label>
