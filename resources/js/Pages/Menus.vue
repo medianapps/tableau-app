@@ -69,6 +69,7 @@ const onEditMenu = (menu) => {
     editMenu.view = menu.view;
     editMenu.group = menu.group;
     editMenu.icon = menu.icon ?? null;
+    selectedIcon.value = menu.icon ?? null;
 
     const selectedRoles = JSON.parse(menu.group);
     roles.value = [filterRoles(selectedRoles), selectedRoles];
@@ -262,10 +263,7 @@ watch(
                 <div class="flex items-center gap-4 mb-4">
                     <label class="w-24" for="slug">Icon</label>
                     <div class="flex gap-2 w-full">
-                        <AutoComplete
-                            v-model="selectedIcon"
-                            :suggestions="icons"
-                        />
+                        <InputText v-model="selectedIcon" />
                         <div
                             v-if="selectedIcon"
                             class="icon-preview p-2 flex items-center gap-2 border border-info rounded-lg w-full"
@@ -275,7 +273,7 @@ watch(
                                 style="font-size: 1.5rem"
                             ></i>
                             <span class="capitalize">
-                                {{ editMenu.name }}
+                                {{ newMenu.name }}
                             </span>
                         </div>
                     </div>
