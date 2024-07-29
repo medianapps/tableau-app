@@ -15,7 +15,7 @@ Proyek ini menggunakan Laravel dengan Inertia.js dan Vue.js. Berikut adalah lang
 
 -   PHP (>=7.3)
 -   Composer
--   Node.js dan npm
+-   Node.js (>= 18) dan npm 
 
 ### Langkah 1: Clone Repository
 
