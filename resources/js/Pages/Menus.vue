@@ -9,7 +9,6 @@ import InputText from "primevue/inputtext";
 import { ref, watch } from "vue";
 import PickList from "primevue/picklist";
 import Chip from "primevue/chip";
-import AutoComplete from "primevue/autocomplete";
 
 const props = defineProps({
     menus: Array,
@@ -100,26 +99,6 @@ const onDeleteMenu = (menuId) => {
 };
 
 const selectedIcon = ref(null);
-const icons = ref([
-    "home",
-    "users",
-    "chart-line",
-    "chart-pie",
-    "chart-bar",
-    "cog",
-    "file",
-    "file-edit",
-    "file-plus",
-    "file-minus",
-    "file-export",
-    "file-import",
-    "file-text",
-    "file-zip",
-    "file-powerpoint",
-    "file-music",
-    "file-video",
-    "file-code",
-]);
 
 watch(
     () => newMenu.name,
